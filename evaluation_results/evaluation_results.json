@@ -1,0 +1,25 @@
+{
+  "metrics": {
+    "accuracy": 0.8819444444444444,
+    "balanced_accuracy": 0.8825657894736841,
+    "f1_macro": 0.8762261574761574,
+    "f1_weighted": 0.8843134572301239
+  },
+  "num_samples": 144,
+  "labels": [
+    "angry",
+    "calm",
+    "disgust",
+    "fearful",
+    "happy",
+    "neutral",
+    "sad",
+    "surprised"
+  ],
+  "artifacts": {
+    "metrics_csv": "metrics.csv",
+    "classification_report_csv": "classification_report.csv",
+    "confusion_matrix_csv": "confusion_matrix.csv",
+    "confusion_matrix_png": "confusion_matrix.png"
+  }
+}

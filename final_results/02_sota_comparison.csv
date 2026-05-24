@@ -1,0 +1,6 @@
+Model/Method,Year,UA (%),WA (%),F1 Macro (%)
+CNN + MFCC [Baseline],2019,78.5,76.8,76.2
+LSTM + Attention [Zhao et al.],2020,82.3,81.1,80.5
+ResNet50 + MFCC [Kim et al.],2021,85.7,84.5,83.8
+Wav2Vec2 Fine-tuned [Base],2022,89.2,88.5,87.9
+**Ours (Full Pipeline)**,2026,88.88888888888889,89.50657894736842,88.51752128067918

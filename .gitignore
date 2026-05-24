@@ -1,0 +1,42 @@
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Logs
+logs/
+*.log
+
+# Models & Weights
+final_model/
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.h5
+
+# Datasets
+dataset/
+long_audio/
+tmp_stream.wav
+*.mp3
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
