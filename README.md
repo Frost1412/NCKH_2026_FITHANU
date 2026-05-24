@@ -180,4 +180,4 @@ Project này được tối ưu cho mục tiêu:
 - đánh giá mô hình bằng metric chuẩn
 - tạo biểu đồ và bảng phục vụ báo cáo / paper
 
-Nếu bạn muốn, mình có thể làm tiếp một file `requirements.txt` để cài đặt một lệnh là chạy được toàn bộ project.
+*Dự án này được xây dựng bởi đội nghiên cứu khoa học số 10, khoa Công nghệ thông tin, trường Đại học Hà Nội. Mục tiêu là để phục vụ cho việc nghiên cứu và báo cáo khoa học*
