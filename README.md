@@ -1,48 +1,48 @@
 # NCKH_2026_FITHANU
 # Speech Emotion Recognition (SER) - Wav2Vec2 Fine-tuned
 
-Dự án này huấn luyện và đánh giá mô hình **Speech Emotion Recognition** dựa trên **Wav2Vec2** cho bài toán nhận diện cảm xúc từ giọng nói.  
-Project hiện có:
+This project trains and evaluates a **Speech Emotion Recognition** model based on **Wav2Vec2** for the task of recognizing emotions from speech.  
+Current project components:
 
-- Script huấn luyện: `train_model_FIXED.py`
-- Script đánh giá nghiên cứu: `file_full_optimized.py`
-- Script đánh giá gọn: `evaluate.py`
-- Ứng dụng demo tương tác: `app_streamlit.py`
-- Mô hình đã fine-tune: `final_model/`
+- Training script: `train_model_FIXED.py`
+- Comprehensive research evaluation script: `file_full_optimized.py`
+- Concise evaluation script: `evaluate.py`
+- Interactive demo application: `app_streamlit.py`
+- Fine-tuned model: `final_model/`
 
 ---
 
 ## Dataset
 
-Dự án sử dụng bộ dữ liệu **RAVDESS Emotional Speech Audio**.
+The project uses the **RAVDESS Emotional Speech Audio** dataset.
 
-- Link tải trên Kaggle:  
+- Kaggle download link:  
   https://www.kaggle.com/datasets/uwrfkaggler/ravdess-emotional-speech-audio
-- Mô tả nhanh:
-  - 1,440 file `.wav`
-  - 24 diễn viên chuyên nghiệp
-  - 8 nhãn cảm xúc: `angry`, `calm`, `disgust`, `fearful`, `happy`, `neutral`, `sad`, `surprised`
-  - File audio-only, 48 kHz
+- Quick description:
+  - 1,440 `.wav` files
+  - 24 professional actors
+  - 8 emotion labels: `angry`, `calm`, `disgust`, `fearful`, `happy`, `neutral`, `sad`, `surprised`
+  - Audio-only files, 48 kHz
 
-> Lưu ý: nếu bạn muốn chạy lại huấn luyện/đánh giá, hãy giải nén dataset vào thư mục `dataset/` trong project hoặc chỉ rõ đường dẫn dataset khi chạy script.
+> Note: If you want to rerun the training/evaluation, please extract the dataset into the `dataset/` directory within the project or specify the dataset path when running the scripts.
 
 ---
 
-## Tính năng chính
+## Key Features
 
-- Fine-tune Wav2Vec2 cho phân loại cảm xúc
-- Đánh giá test set với các metric:
+- Fine-tunes Wav2Vec2 for emotion classification
+- Evaluates the test set using the following metrics:
   - Accuracy
   - Balanced Accuracy / WA
   - Macro F1
   - Weighted F1
-- Xuất biểu đồ và bảng cho nghiên cứu
-- Demo Streamlit để upload file `.wav` và xem dự đoán cảm xúc
-- Hỗ trợ audio dài bằng **chunking + overlap**
+- Exports charts and tables for research purposes
+- Streamlit demo for uploading `.wav` files and viewing emotion predictions
+- Supports long audio using **chunking + overlap**
 
 ---
 
-## Cấu trúc thư mục
+## Directory Structure
 
 ```text
 ser_optimized_v2/
@@ -62,11 +62,11 @@ ser_optimized_v2/
 
 ---
 
-## Yêu cầu môi trường
+## Environmental Requirements
 
-Khuyến nghị dùng Python 3.10+ và tạo virtual environment riêng.
+It is recommended to use Python 3.10+ and create a dedicated virtual environment.
 
-### Tạo và kích hoạt `venv` trên PowerShell
+### Create and activate `venv` on PowerShell
 
 ```powershell
 Set-Location "C:\Users\ACER\OneDrive - hanu.edu.vn\Desktop\ser_models\ser_optimized_v2"
@@ -75,7 +75,7 @@ Set-ExecutionPolicy -Scope Process Bypass -Force
 .\venv\Scripts\Activate.ps1
 ```
 
-### Cài thư viện cần thiết
+### Install required libraries
 
 ```powershell
 pip install streamlit torch transformers librosa pandas numpy matplotlib plotly scikit-learn soundfile datasets evaluate seaborn tqdm
@@ -83,62 +83,62 @@ pip install streamlit torch transformers librosa pandas numpy matplotlib plotly 
 
 ---
 
-## Chạy đánh giá mô hình
+## Run Model Evaluation
 
-### 1) Script đánh giá gọn
+### 1) Concise evaluation script
 
 ```powershell
 Set-Location "C:\Users\ACER\OneDrive - hanu.edu.vn\Desktop\ser_models\ser_optimized_v2"
 python evaluate.py
 ```
 
-Kết quả sẽ được lưu trong thư mục `evaluation_results/`.
+Results will be saved in the `evaluation_results/` directory.
 
-### 2) Script đánh giá nghiên cứu đầy đủ
+### 2) Comprehensive research evaluation script
 
 ```powershell
 Set-Location "C:\Users\ACER\OneDrive - hanu.edu.vn\Desktop\ser_models\ser_optimized_v2"
 python file_full_optimized.py
 ```
 
-Script này sẽ sinh thêm nhiều bảng và hình minh họa cho phần viết paper, lưu trong `final_results/`.
+This script will generate additional tables and illustrations for writing papers, saved in `final_results/`.
 
 ---
 
-## Chạy ứng dụng Streamlit
+## Run Streamlit Application
 
 ```powershell
 Set-Location "C:\Users\ACER\OneDrive - hanu.edu.vn\Desktop\ser_models\ser_optimized_v2"
 streamlit run app_streamlit.py
 ```
 
-Ứng dụng sẽ mở tại:
+The application will open at:
 
 - Local URL: `http://localhost:8501`
 
-Tính năng của app:
+App features:
 
-- Upload file `.wav`
-- Dự đoán cảm xúc theo thời gian thực
-- Hỗ trợ audio dài bằng chunking + overlap
-- Lưu log kết quả vào `logs/emotion_log.csv`
+- Upload `.wav` files
+- Real-time emotion prediction
+- Support for long audio using chunking + overlap
+- Save result logs to `logs/emotion_log.csv`
 
 ---
 
-## Đầu ra quan trọng
+## Important Outputs
 
 - `test_metrics.csv` / `evaluation_results/metrics.csv`  
-  Thống kê metric đánh giá
+  Evaluation metrics statistics
 - `evaluation_results/confusion_matrix.png`  
-  Ma trận nhầm lẫn
+  Confusion matrix
 - `final_results/`  
-  Bộ file nghiên cứu đầy đủ: SOTA comparison, ablation study, noise robustness, inference time, learning curve, ...
+  Full set of research files: SOTA comparison, ablation study, noise robustness, inference time, learning curve, etc.
 
 ---
 
-## Ghi chú về dữ liệu và nhãn
+## Notes on Data and Labels
 
-Dự án hiện parse nhãn từ tên file RAVDESS theo quy ước:
+The project currently parses labels from RAVDESS file names according to the convention:
 
 - `01 = neutral`
 - `02 = calm`
@@ -149,35 +149,35 @@ Dự án hiện parse nhãn từ tên file RAVDESS theo quy ước:
 - `07 = disgust`
 - `08 = surprised`
 
-Ví dụ:
+Example:
 
 - `03-01-06-01-02-01-12.wav` → `fearful`
 
 ---
 
-## Trích dẫn dataset RAVDESS
+## RAVDESS Dataset Citation
 
-Nếu dùng dataset này trong nghiên cứu, hãy trích dẫn:
+If you use this dataset in your research, please cite:
 
 **Livingstone SR, Russo FA (2018)**. *The Ryerson Audio-Visual Database of Emotional Speech and Song (RAVDESS): A dynamic, multimodal set of facial and vocal expressions in North American English.* PLoS ONE 13(5): e0196391.  
 DOI: https://doi.org/10.1371/journal.pone.0196391
 
 ---
 
-## License dataset
+## Dataset License
 
-Theo trang Kaggle, dataset này được phát hành dưới giấy phép:
+According to the Kaggle page, this dataset is released under the license:
 
 - **CC BY-NC-SA 4.0**
 
 ---
 
-## Tác giả / ghi chú
+## Author / Notes
 
-Project này được tối ưu cho mục tiêu:
+This project is optimized for the following goals:
 
-- nghiên cứu Speech Emotion Recognition
-- đánh giá mô hình bằng metric chuẩn
-- tạo biểu đồ và bảng phục vụ báo cáo / paper
+- Researching Speech Emotion Recognition
+- Evaluating models using standard metrics
+- Generating charts and tables for reports / papers
 
-*Dự án này được xây dựng bởi đội nghiên cứu khoa học số 10, khoa Công nghệ thông tin, trường Đại học Hà Nội. Mục tiêu là để phục vụ cho việc nghiên cứu và báo cáo khoa học*
+*This project was built by the research team No. 10, Faculty of Information Technology, Hanoi University. The goal is to serve the research and scientific reporting*
